@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFF4E9">
+  <title>Voice Cue Timer</title>
+  <!-- Keep all three files together in the same folder. -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <h1>Voice Cue Timer</h1>
+    <p>One continuous timer. Spoken cues at the moments you choose. No ticking.</p>
+    <p>Start the timer and then you have 10 seconds to adjust your position and begin the Shambhavi Mahamudra Kriya.</p>
+    <section class="timer" aria-label="Timer">
+      <div class="muted">ELAPSED</div>
+      <div class="clock" id="clock">00:00</div>
+      <div class="muted" id="total">of 24:10</div>
+      <div class="progress"><div class="fill" id="fill"></div></div>
+      <p id="next">Next cue: 00:10</p>
+    </section>
+    <div class="buttons">
+      <button class="primary" id="start">Start</button>
+      <button id="reset">Reset</button>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+    <div class="heading">
+      <h2>Audio cues</h2>
+      <button class="small" id="add">+ Add cue</button>
+    </div>
+    <!-- JavaScript generates cue rows with Cue time, Duration, Message, and Delete. -->
+    <div class="cue-labels" aria-hidden="true">
+      <span>Cue time</span><span>Duration</span><span>Spoken message</span><span></span>
+    </div>
+    <div id="cues"></div>
+    <p class="note">Cue time is elapsed time since Start. Duration is the time from the current cue until the next cue. Changing a duration automatically shifts all later cues. The timer ends at the last cue. Changes are not saved after refresh.</p>
+    <p class="footer">Keep this page open and visible, with your phone's media volume up. Screen wake lock is requested while running, where supported. Browser speech can be interrupted by calls, locking, or operating-system restrictions.</p>
+  </main>
+</body>
+</html>

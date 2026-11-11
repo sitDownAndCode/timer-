@@ -1,0 +1,121 @@
+/* Coastal Sunset theme: peach sand, ocean teal, and sky blue. */
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color-scheme: light;
+  --background: #FFF4E9;
+  --surface: #FFE4D2;
+  --surface-soft: #FFF9F3;
+  --ocean: #087F87;
+  --ocean-light: #24B4D8;
+  --ocean-dark: #075B65;
+  --coral: #F9A487;
+  --peach: #F6D4B9;
+  --text: #34434A;
+  --muted: #746E70;
+  --border: #E8C6B5;
+  background: var(--background);
+  color: var(--text);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 24px 16px 50px;
+  background: linear-gradient(160deg, #D7F3F4 0%, #FFF4E9 40%, #FFE1CD 100%);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.app { max-width: 600px; margin: auto; }
+h1 { font-size: 1.6rem; margin: 0 0 8px; color: var(--ocean-dark); }
+p { color: var(--muted); line-height: 1.5; }
+.muted { color: var(--muted); }
+
+/* Timer display */
+.timer {
+  text-align: center;
+  background: linear-gradient(145deg, #FFF8F0 0%, #FFDCC5 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 12px;
+  margin: 24px 0 16px;
+  box-shadow: 0 8px 25px rgba(112, 84, 70, 0.08);
+}
+.clock {
+  font-size: clamp(3.5rem, 16vw, 5.5rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: var(--ocean-dark);
+}
+.progress { height: 8px; background: #E7C8B9; border-radius: 10px; overflow: hidden; margin-top: 20px; }
+.fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--ocean), var(--ocean-light)); border-radius: 10px; }
+
+/* Buttons and section heading */
+.buttons { display: flex; gap: 10px; margin: 16px 0 25px; }
+button, input { font: inherit; }
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 15px;
+  background: var(--peach);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+button:hover { background: var(--coral); }
+button:active { transform: scale(0.98); }
+button.primary { background: var(--ocean); color: white; flex: 1; font-weight: 700; }
+button.primary:hover { background: var(--ocean-dark); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.small { padding: 9px 11px; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 18px 0 12px; }
+.heading h2 { font-size: 1.15rem; margin: 0; color: var(--ocean-dark); }
+
+/* NEW: Four-column cue rows: absolute time, duration, spoken message, delete.
+   minmax(0, 1fr) prevents long messages from pushing fields off-screen. */
+.cue, .cue-labels {
+  display: grid;
+  grid-template-columns: 76px 76px minmax(0, 1fr) 34px;
+  gap: 8px;
+  align-items: center;
+}
+.cue-labels {
+  padding: 0 10px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+.cue {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 9px 0;
+  box-shadow: 0 3px 10px rgba(112, 84, 70, 0.04);
+}
+.cue input {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 8px;
+  background: #FFFFFF;
+  color: var(--text);
+  outline: none;
+}
+.cue input:focus { border-color: var(--ocean); box-shadow: 0 0 0 2px rgba(8, 127, 135, 0.12); }
+.cue.played { opacity: 0.6; }
+.cue button { padding: 9px 0; }
+.status { min-height: 24px; color: var(--ocean-dark); font-weight: 500; }
+.note { font-size: 0.85rem; }
+.footer { margin-top: 20px; font-size: 0.82rem; }
+
+/* Narrow phones: stack the message on a second row to keep times editable. */
+@media (max-width: 480px) {
+  .cue { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 34px; gap: 7px; }
+  .cue input:nth-child(3) { grid-column: 1 / 3; grid-row: 2; }
+  .cue button { grid-column: 3; grid-row: 1 / 3; align-self: stretch; }
+  .cue-labels { grid-template-columns: 1fr 1fr 34px; gap: 7px; }
+  .cue-labels span:nth-child(3), .cue-labels span:nth-child(4) { display: none; }
+}
+button:focus-visible { outline: 3px solid var(--ocean-light); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { button { transition: none; } }
