@@ -5,12 +5,12 @@
 const defaults = [
   {seconds:10,text:'IE Crash Course'},
   {seconds:130,text:'Invocation'},
-  {seconds:220,text:'Sukha Kriya'},
-  {seconds:700,text:'AUM Chanting'},
-  {seconds:1000,text:'Agna focused Fluttering Breaths'},
-  {seconds:1360,text:'Bandhas'},
-  {seconds:1480,text:'Agna Focused Breath Watching'},
-  {seconds:1920,text:'Invocation'}
+  {seconds:210,text:'Sukha Kriya'},
+  {seconds:660,text:'AUM Chanting'},
+  {seconds:960,text:'Agna focused Fluttering Breaths'},
+  {seconds:1230,text:'Bandhas'},
+  {seconds:1360,text:'Agna Focused Breath Watching'},
+  {seconds:1800,text:'Invocation'}
 ];
 
 // Timer state; nothing is stored between page refreshes.
