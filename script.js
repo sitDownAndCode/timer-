@@ -10,7 +10,7 @@ const defaults = [
   {seconds:1000,text:'Agna focused Fluttering Breaths'},
   {seconds:1360,text:'Bandhas'},
   {seconds:1480,text:'Agna Focused Breath Watching'},
-  {seconds:2220,text:'Invocation'}
+  {seconds:1920,text:'Invocation'}
 ];
 
 // Timer state; nothing is stored between page refreshes.
